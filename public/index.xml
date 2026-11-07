@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>beyond-prompt</title><link>https://bonggyunjo.github.io/beyond-prompt/</link><description>Recent content on beyond-prompt</description><generator>Hugo -- 0.146.0</generator><language>ko-kr</language><lastBuildDate>Sat, 07 Nov 2026 15:50:00 +0900</lastBuildDate><atom:link href="https://bonggyunjo.github.io/beyond-prompt/index.xml" rel="self" type="application/rss+xml"/><item><title>소개</title><link>https://bonggyunjo.github.io/beyond-prompt/about/</link><pubDate>Sat, 07 Nov 2026 15:50:00 +0900</pubDate><guid>https://bonggyunjo.github.io/beyond-prompt/about/</guid><description>&lt;h2 id="왜-beyond-prompt인가">왜 &amp;lsquo;Beyond Prompt&amp;rsquo;인가?&lt;/h2>
-&lt;p>단순히 프롬프트 한 줄을 던지고 답변을 기다리는 단계를 넘어, &lt;strong>스스로 판단하고 루프를 돌며 협업하는 에이전트 시스템을 어떻게 설계할 것인가&lt;/strong>, 그리고 &lt;strong>외부 데이터·도구와 안전하게 맞물리는 생태계 기술을 어떻게 실전에 적용할 것인가&lt;/strong>를 탐구하는 공간입니다.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>beyond-prompt</title><link>https://bonggyunjo.github.io/beyond-prompt/</link><description>Recent content on beyond-prompt</description><generator>Hugo -- 0.146.0</generator><language>ko-kr</language><lastBuildDate>Sat, 07 Nov 2026 15:50:00 +0900</lastBuildDate><atom:link href="https://bonggyunjo.github.io/beyond-prompt/index.xml" rel="self" type="application/rss+xml"/><item><title>소개</title><link>https://bonggyunjo.github.io/beyond-prompt/about/</link><pubDate>Sat, 07 Nov 2026 15:50:00 +0900</pubDate><guid>https://bonggyunjo.github.io/beyond-prompt/about/</guid><description>&lt;h2 id="이-블로그에-대하여">이 블로그에 대하여&lt;/h2>
+&lt;p>AI 에이전트가 무엇인지 같은 &lt;strong>기초 개념부터 시작해 실제 동작 원리와 심화 구조까지 차근차근 정리&lt;/strong>하고, 직접 여러 도구들을 써보면서 느낀 &lt;strong>솔직한 후기와 생각&lt;/strong>을 기록하는 공간입니다.&lt;/p>
 &lt;hr>
-&lt;h2 id="두-가지-기록의-축">두 가지 기록의 축&lt;/h2>
+&lt;h2 id="두-가지-카테고리">두 가지 카테고리&lt;/h2>
 &lt;ol>
 &lt;li>
-&lt;p>&lt;strong>&lt;a href="../architecture/">에이전트 아키텍처와 생태계 (Architecture &amp;amp; Ecosystem)&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>&lt;a href="../architecture/">에이전트 개념과 구조&lt;/a>&lt;/strong>&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>멀티 에이전트 오케스트레이션&lt;/strong>: 순환(Cycle) 그래프 구조를 통해 에이전트가 스스로 판단·수정·완료하는 자율 루프 표준(LangGraph 등)과, 역할(Role)·목표(Goal)·백스토리(Backstory) 기반의 롤플레이형 멀티 에이전트 팀 구성 원리(CrewAI 등)&lt;/li>
-&lt;li>&lt;strong>표준 프로토콜과 도구 연동&lt;/strong>: 로컬 파일 시스템, 데이터베이스, 외부 데이터소스에 안전하게 접근하기 위한 MCP(Model Context Protocol) 규격과 서버 구현체 분석&lt;/li>
-&lt;li>&lt;strong>컨텍스트 엔지니어링과 지식 체계&lt;/strong>: 필수 &lt;code>.md&lt;/code> 사전 로드 메커니즘, 문서화 계층(Documentation Hierarchy), 옵시디언(Obsidian) 기반 지식 구조화 및 운영 규칙&lt;/li>
+&lt;li>에이전트, 옵시디언(Obsidian), MCP의 기초 개념부터 시작해 단일·멀티 에이전트의 구성과 동작 원리를 다룹니다.&lt;/li>
+&lt;li>필수 &lt;code>.md&lt;/code> 사전 로드 방식과 문서화 계층 잡는 법, 역할 기반 팀 구성(CrewAI 등)이나 순환 루프 구조(LangGraph 등)처럼 에이전트를 효율적으로 다루기 위한 규칙과 심화 개념까지 폭넓게 정리합니다.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>&lt;a href="../perspectives/">실전 체감과 시선 (Perspectives &amp;amp; Insights)&lt;/a>&lt;/strong>&lt;/p></description></item></channel></rss>
+&lt;p>&lt;strong>&lt;a href="../perspectives/">사용 회고와 생각&lt;/a>&lt;/strong>&lt;/p></description></item></channel></rss>
