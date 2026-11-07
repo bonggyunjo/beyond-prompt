@@ -1,0 +1,84 @@
+<div class="profile home-dashboard">
+    {{- with site.Params.profileMode }}
+    <div class="profile_inner">
+        <header class="minimal-intro">
+            <p class="intro-statement">
+                단순한 프롬프트 입력을 넘어 에이전트 아키텍처와 문서 계층을 설계하는 원리, 그리고 실전에서 직접 체감한 강점과 한계를 기록합니다.
+            </p>
+            <nav class="intro-links" aria-label="외부 링크">
+                <a href="https://bonggyunjo.github.io/" target="_blank" rel="noopener">Main Blog ↗</a>
+                <span class="link-sep">·</span>
+                <a href="https://github.com/bonggyunjo" target="_blank" rel="noopener">GitHub ↗</a>
+            </nav>
+        </header>
+
+        {{- $archPages := where site.RegularPages "Section" "architecture" -}}
+        {{- $perspPages := where site.RegularPages "Section" "perspectives" -}}
+
+        <section class="pillar-section" aria-label="카테고리 탐색">
+            <div class="section-label-row">
+                <span class="section-mono-label">CATEGORIES</span>
+                <span class="section-divider"></span>
+            </div>
+            <div class="category-grid two-col">
+                <a class="category-card" href="{{ "architecture/" | absURL }}">
+                    <div class="category-card-top">
+                        <span class="category-index">01 / ARCHITECTURE &amp; PLAYBOOK</span>
+                        <span class="category-arrow">↗</span>
+                    </div>
+                    <h2 class="category-card-title">에이전트 설계와 원리</h2>
+                    <p class="category-card-desc">단일·멀티 에이전트의 구성과 동작 원리, 필수 .md 사전 로드 및 문서화 계층, 옵시디언과 MCP까지 에이전트를 효율적으로 다루기 위한 구조와 규칙</p>
+                    <div class="category-card-footer">
+                        <span class="category-count">{{ len $archPages }}편의 글</span>
+                    </div>
+                </a>
+
+                <a class="category-card" href="{{ "perspectives/" | absURL }}">
+                    <div class="category-card-top">
+                        <span class="category-index">02 / PERSPECTIVES &amp; REVIEW</span>
+                        <span class="category-arrow">↗</span>
+                    </div>
+                    <h2 class="category-card-title">실전 체감과 고찰</h2>
+                    <p class="category-card-desc">에이전트 기술과 MCP를 실제 작업에 도입하며 체감한 강점과 명확한 한계점, 그리고 현시점 AI 생태계에서 가장 유효한 활용 방식에 대한 시선</p>
+                    <div class="category-card-footer">
+                        <span class="category-count">{{ len $perspPages }}편의 글</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        {{- $recent := first 6 (where site.RegularPages "Section" "in" (slice "architecture" "perspectives")) -}}
+        <section class="recent-section" aria-label="최근 작성한 글">
+            <div class="section-label-row">
+                <span class="section-mono-label">RECENT WRITINGS</span>
+                <span class="section-divider"></span>
+                <a class="recent-more" href="{{ "archives/" | absURL }}">전체 보기 ({{ len (where site.RegularPages "Section" "in" (slice "architecture" "perspectives")) }})</a>
+            </div>
+            {{- if gt (len $recent) 0 }}
+            <div class="recent-list">
+                {{- range $recent }}
+                {{- $sec := .Section -}}
+                {{- $secLabel := "Article" -}}
+                {{- if eq $sec "architecture" -}}
+                    {{- $secLabel = "Architecture" -}}
+                {{- else if eq $sec "perspectives" -}}
+                    {{- $secLabel = "Perspectives" -}}
+                {{- end -}}
+                <a class="recent-item" href="{{ .Permalink }}">
+                    <div class="recent-item-main">
+                        <span class="recent-item-cat">{{ $secLabel }}</span>
+                        <span class="recent-item-title">{{ .Title }}</span>
+                    </div>
+                    <time class="recent-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+                </a>
+                {{- end }}
+            </div>
+            {{- else }}
+            <div class="empty-section-state">
+                <p>아직 등록된 글이 없습니다. 곧 첫 번째 아키텍처 정리 및 회고 글이 업데이트될 예정입니다.</p>
+            </div>
+            {{- end }}
+        </section>
+    </div>
+    {{- end }}
+</div>

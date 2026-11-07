@@ -1,0 +1,83 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+
+  {{- $archCount := len (where site.RegularPages "Section" "architecture") -}}
+  {{- $perspCount := len (where site.RegularPages "Section" "perspectives") -}}
+  <nav class="section-tabs" aria-label="카테고리 전환">
+    <a class="section-tab active" href="{{ "archives/" | absURL }}">
+      전체 아카이브 <span class="tab-count">{{ add $archCount $perspCount }}</span>
+    </a>
+    <a class="section-tab" href="{{ "architecture/" | absURL }}">
+      에이전트 설계와 원리 <span class="tab-count">{{ $archCount }}</span>
+    </a>
+    <a class="section-tab" href="{{ "perspectives/" | absURL }}">
+      실전 체감과 고찰 <span class="tab-count">{{ $perspCount }}</span>
+    </a>
+  </nav>
+</header>
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+
+{{- if site.Params.ShowAllPagesInArchive }}
+{{- $pages = site.RegularPages }}
+{{- end }}
+
+{{- if eq (len $pages) 0 }}
+<div class="empty-section-state">
+  <p>아직 등록된 글이 없습니다. 곧 첫 번째 글이 기록될 예정입니다.</p>
+</div>
+{{- end }}
+
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="archive-year">
+  {{- $year := replace .Key "0001" "" }}
+  <h2 class="archive-year-header" id="{{ $year }}">
+    <a class="archive-header-link" href="#{{ $year }}">{{- $year -}}</a>
+    <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+  </h2>
+  {{- range .Pages.GroupByDate "01" }}
+  <div class="archive-month">
+    <h3 class="archive-month-header" id="{{ $year }}-{{ .Key }}">
+      <a class="archive-header-link" href="#{{ $year }}-{{ .Key }}">{{- .Key -}}월</a>
+      <sup class="archive-count">&nbsp;{{ len .Pages }}</sup>
+    </h3>
+    <div class="archive-posts">
+      {{- range .Pages }}
+      {{- if eq .Kind "page" }}
+      {{- $sec := .Section -}}
+      {{- $secLabel := "" -}}
+      {{- if eq $sec "architecture" -}}
+          {{- $secLabel = "Architecture" -}}
+      {{- else if eq $sec "perspectives" -}}
+          {{- $secLabel = "Perspectives" -}}
+      {{- end -}}
+      <div class="archive-entry">
+        <h3 class="archive-entry-title entry-hint-parent">
+          {{- if $secLabel }}
+          <span class="archive-sec-tag">{{ $secLabel }}</span>
+          {{- end }}
+          {{- .Title | markdownify }}
+        </h3>
+        <div class="archive-meta">
+          {{- partial "post_meta.html" . -}}
+        </div>
+        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}
+
+{{- end }}

@@ -1,0 +1,78 @@
+baseURL = 'https://bonggyunjo.github.io/beyond-prompt/'
+languageCode = 'ko-kr'
+title = 'beyond-prompt'
+theme = 'PaperMod'
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            strikethrough = false
+        [markup.goldmark.renderer]
+            unsafe = true
+
+[params]
+    env = "production"
+    title = "beyond-prompt"
+    description = "AI 에이전트 아키텍처, 문서 계층 설계, 그리고 실전 도입을 통해 체감한 시선과 회고를 기록합니다."
+    author = "Bonggyun Jo"
+    mainSections = ["architecture", "perspectives"]
+    ShowAllPagesInArchive = false
+
+    # [디자인] 라이트/다크 모드 및 가독성 설정
+    defaultTheme = "light"
+    disableThemeToggle = false
+    ShowReadingTime = true
+    ShowCodeCopyButtons = true
+    ShowBreadCrumbs = true
+    ShowPostNavLinks = true
+    ShowToc = true
+    TocOpen = false
+
+    # [검색 옵션]
+    [params.fuseOpts]
+        isCaseSensitive = false
+        shouldSort = true
+        location = 0
+        distance = 1000
+        threshold = 0.4
+        minMatchCharLength = 0
+        keys = ["title", "permalink", "summary", "content", "tags", "categories"]
+
+    # [Profile Mode] 메인 대시보드 활성화
+    [params.profileMode]
+        enabled = true
+        title = "Beyond Prompt."
+        subtitle = "단순한 프롬프트 입력을 넘어 에이전트 아키텍처와 문서 계층을 설계하는 원리, 그리고 직접 부딪히며 체감한 강점과 한계를 기록합니다."
+
+    [[params.socialIcons]]
+        name = "github"
+        url = "https://github.com/bonggyunjo"
+
+# [Menu] 상단 내비게이션
+[[menu.main]]
+    name = "Architecture"
+    url = "architecture/"
+    weight = 10
+[[menu.main]]
+    name = "Perspectives"
+    url = "perspectives/"
+    weight = 20
+[[menu.main]]
+    name = "Archive"
+    url = "archives/"
+    weight = 30
+[[menu.main]]
+    name = "Tags"
+    url = "tags/"
+    weight = 40
+[[menu.main]]
+    name = "Search"
+    url = "search/"
+    weight = 50
+[[menu.main]]
+    name = "About"
+    url = "about/"
+    weight = 60
